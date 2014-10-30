@@ -14,9 +14,9 @@ $(document).ready(function(){
 
 		}else{
 			$('#ratings').html("<h2 class='loading'>Your ratings are coming!</h2>");
-			$.getJSON("http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=nhrg4r4r9wnp6ce46efr2cg&q="+rate+"3&page_limit=1?apikey=4nhrg4r4r9wnp6ce46efr2cg"/+rate+"&callback=?",function(json){
+			$.getJSON("http://api.rottentomatoes.com/api/public/v1.0/movies/770672122/reviews.json?review_type=top_critic&page_limit=20&page=1&country=us&apikey=4nhrg4r4r9wnp6ce46efr2cg"/ +rate+ "&callback=?", function(json){
 				if(json.length>0){
-					$('#ratings').html('<h2 class="loading">We found ratings.</h2><span id="theRatings" src=' + json[0].ratings+'</span>');
+					$('#ratings').html('<h2 class="loading">We found ratings.</h2><span id="theRatings" src=' + json[1].reviews.quote+'</span>');
 				} else {
 					$('#ratings').html('<h2 class="loading">We could not find anything</h2>');
 				}
